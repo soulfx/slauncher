@@ -1,5 +1,11 @@
-# slauncher
+# Kindle Script Launcher (slauncher)
+
 A script launcher for kindle eink devices.
+
+    Copyright (c) 2025 John Elkins
+    Licensed under the MIT License. See project LICENSE file for full license text
+    Project: https://github.com/soulfx/slauncher
+    Document Revision: 1.0.20250627
 
 ## Overvierw
 
@@ -18,7 +24,7 @@ Provides a way to launch apps and execute pre-configured shell commands directly
     
     A majority of the time the kindle device will just be put to sleep, not shutdown.  If the script launcher is already enabled, when the device goes to sleep and is woke back up it doesn't have to be re-enabled after it wakes up.
  3. Not really a quirk specific to this launcher, and applies to ther other launchers, but this will enable launching commands as the root user on the device.  With that in mind, every precaution should be taken on what commands are entered into the scripts that will be executed by this launcher.
-  4. The script uses file polling to check for open/close of book events which is a bit inefficient.  There is no inotify on the device.
+  4. The script uses file polling to check for open/close of book events which is a bit inefficient.  There is no inotify on the device. This may have an impact on battery usage.  The polling frequency is 2 seconds and could be increased if battery impacts are noticed.
 
 ## Comparison
 
@@ -82,10 +88,3 @@ If when launching a script, the message " SLauncher is currently disabled " is d
  1. Place scripts to launch in the `/mnt/us/documents/scripts` directory. They don't need to be under the scripts subdirectory but it can be helpful to keep them all in one spot.
  2. Ensure the script filename ends with `.sh.txt`
  3. Execute the "Refresh Books" script to pick up on the new script in the kindle reader.
-
----
-
- - Document Version: 1.0.20250627
- - Source: https://github.com/soulfx/slauncher
- - License: [MIT License](LICENSE)
- - Copyright (c) 2025 John Elkins
