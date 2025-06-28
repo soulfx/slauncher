@@ -5,7 +5,7 @@ A script launcher for kindle eink devices.
     Copyright (c) 2025 John Elkins
     Licensed under the MIT License. See project LICENSE file for full license text
     Project: https://github.com/soulfx/slauncher
-    Document Revision: 1.0.20250627
+    Document Revision: 1.0.20250628
 
 ## Overvierw
 
@@ -64,7 +64,7 @@ CAUTION Once the root is mounted as read/write be very careful from that point o
  2.  Move the scripts directory to documents `mv -i /mnt/us/slauncher/scripts /mnt/us/documents`
  3.  Refresh the Book List `sh "/mnt/us/documents/scripts/Refresh Books.sh.txt"`
  4.  Remount the root as read/write `mntroot rw`
- 5.  Install the script launcher service `mv -i /mnt/us/slauncher/service/slauncher`
+ 5.  Install the script launcher service `mv -i /mnt/us/slauncher/service/slauncher /etc/init.d`
  6.  Enable it on startup `cd /etc/rc5.d/ &&  ln -s ../init.d/slauncher S92slauncher`
  7.  Remount the root as read only `mntroot ro`
  8.  Start the script launcher service `/init.d/slauncher start`
