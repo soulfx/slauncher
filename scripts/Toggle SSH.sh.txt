@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /mnt/us/extensions/usbnet
+./bin/usbnet.sh toggle_usbnet
+./bin/usbnet.sh usbnet_status
