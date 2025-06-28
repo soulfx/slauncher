@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Copyright (c) 2025 John Elkins
+# Licensed under the MIT License. See project LICENSE file for full license text
+# Project: https://github.com/soulfx/slauncher
+# Version: 1.0.20250627 
+
+_FUNCTIONS=/etc/rc.d/functions
+[ -f ${_FUNCTIONS} ] && . ${_FUNCTIONS}
+
+case "$1" in
+
+        start)
+            /mnt/us/slauncher/slauncher.sh & 2>/dev/null
+        ;;
+
+        stop)
+	    kill `pidof slauncher.sh`
+        ;;
+        
+        *)
+                msg "Usage: $0 {start|stop}" W >&2
+                exit 1
+                ;;
+esac
+
+exit 0
