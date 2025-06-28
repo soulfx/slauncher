@@ -1,0 +1,3 @@
+#!/bin/sh
+. "/mnt/us/slauncher/lib/libdisplay.sh"
+display "SLauncher is now enabled"
