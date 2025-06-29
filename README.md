@@ -5,7 +5,7 @@ A script launcher for kindle eink devices.
     Copyright (c) 2025 John Elkins
     Licensed under the MIT License. See project LICENSE file for full license text
     Project: https://github.com/soulfx/slauncher
-    Document Revision: 1.0.20250628
+    Document Revision: 1.0.20250629
 
 ## Overvierw
 
@@ -18,13 +18,14 @@ Provides a way to launch apps and execute pre-configured shell commands directly
  1. The shell script will launch on exit from reading the shell script, not when entering it.
     
     This was mainly to work around an issue where some qt based apps (like K3Chess) suspended the kindle reader app causing the open/close events to not register correctly.  It's more predictable to have the app launch on exit of the script.
- 2. The script launcher must be enabled after each boot by the user.
+ 2. Pressing any buttons other than back while reading the script will cause the script not to launch.
+ 3. The script launcher must be enabled after each boot by the user.
     
     This step prevents scripts from launching during boot that could cause a crash boot loop which is very difficult to recover from. It is slightly inconvienant to enable it on each restart, but the safety it provides outweighs the annoyance.
     
     A majority of the time the kindle device will just be put to sleep, not shutdown.  If the script launcher is already enabled, when the device goes to sleep and is woke back up it doesn't have to be re-enabled after it wakes up.
- 3. Not really a quirk specific to this launcher, and applies to ther other launchers, but this will enable launching commands as the root user on the device.  With that in mind, every precaution should be taken on what commands are entered into the scripts that will be executed by this launcher.
-  4. The script uses file polling to check for open/close of book events which is a bit inefficient.  There is no inotify on the device. This may have an impact on battery usage.  The polling frequency is 2 seconds and could be increased if battery impacts are noticed.
+ 4. Not really a quirk specific to this launcher, and applies to ther other launchers, but this will enable launching commands as the root user on the device.  With that in mind, every precaution should be taken on what commands are entered into the scripts that will be executed by this launcher.
+ 5. The script uses file polling to check for open/close of book events which is a bit inefficient.  There is no inotify on the device. This may have an impact on battery usage.  The polling frequency is 2 seconds and could be increased if battery impacts are noticed.
 
 ## Comparison
 
